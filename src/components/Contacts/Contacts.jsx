@@ -1,4 +1,6 @@
 import PropTypes from 'prop-types';
+
+import { FiDelete } from 'react-icons/fi';
 import { ContactItem, DeleteBtn } from './Contacts.styled';
 export const Contacts = ({ contacts, onDeleteContact }) => (
   <ul>
@@ -14,7 +16,7 @@ export const Contacts = ({ contacts, onDeleteContact }) => (
             onDeleteContact(id);
           }}
         >
-          Delete
+          <FiDelete width={32} height={32} />
         </DeleteBtn>
       </ContactItem>
     ))}

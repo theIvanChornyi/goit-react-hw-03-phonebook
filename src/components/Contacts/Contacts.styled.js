@@ -20,7 +20,9 @@ export const ContactItem = styled.li`
 `;
 
 export const DeleteBtn = styled.button`
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   padding: ${p => p.theme.space[3]}px;
 

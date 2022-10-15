@@ -22,6 +22,20 @@ const INITIAL_STATE = {
 export class App extends Component {
   state = { ...INITIAL_STATE };
 
+  componentDidMount() {
+    const savedContacts = localStorage.getItem('Contacts');
+    if (savedContacts) {
+      const { contacts } = JSON.parse(savedContacts);
+      this.setState({ contacts });
+    }
+  }
+  componentDidUpdate(prevState) {
+    if (prevState !== this.state) {
+      const contactsString = JSON.stringify({ contacts: this.state.contacts });
+      localStorage.setItem('Contacts', contactsString);
+    }
+  }
+
   addContact = newContact => {
     const normalizeNewContact = { id: nanoid(), ...newContact };
     this.setState(prev => {
